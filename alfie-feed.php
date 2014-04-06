@@ -88,7 +88,8 @@ add_action('admin_menu', 'alfie_plugin_menu');
 wp_localize_script( 'my-ajax-request', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 // Include pages
 include 'include/puck.php';
-$puck = new puck(HOST_DOMAIN,1);
+$row = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."alfieliate_settings  WHERE setting_id = '1'", ARRAY_A);
+$puck = new puck(HOST_DOMAIN,$row['website_id'],$row['api_key']);
 include 'include/alfie-option.php';
 include 'include/alfie-config.php';
 include 'include/ajax.php';

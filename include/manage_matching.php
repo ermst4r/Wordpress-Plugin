@@ -31,7 +31,12 @@ function manage_matching()
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach($puck->getmatching()  as $key=>$values):
+		<?php
+		if(!$puck->getAcceptedFilters()) {
+				wp_redirect("/wp-admin/admin.php?page=alfie-config");
+			}
+		
+		 foreach($puck->getmatching()  as $key=>$values):
 			?>
 		<tr>
 	

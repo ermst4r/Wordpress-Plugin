@@ -6,7 +6,9 @@ function alfie_config()
 	 ?>
 	<BR><BR>
 		<div class="updated" style="margin-left:0px;"> Fill here your API key and website id from 
-			<a href="http://www.alfieliate.nl" target="_blank"> Alfieliate.nl </a> in order to make this plugin work.</div><BR><BR>
+			<a href="http://www.alfieliate.nl" target="_blank"> Alfieliate.nl </a> in order to make this plugin work.
+			
+			</div><BR><BR>
 	<form name="alfie_insert" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
 <table width="893" height="167" style="border:1px solid gray;">
 

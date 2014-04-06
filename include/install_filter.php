@@ -1,4 +1,6 @@
-	<?php $match_id = (isset($_GET['match_id']) ? $_GET['match_id'] : 0);	?>
+	<?php $match_id = (isset($_GET['match_id']) ? $_GET['match_id'] : 0);
+	
+		?>
 	
 	<h2> 
 		
@@ -37,7 +39,10 @@
 		
 		
 		if($match_id == 0 ): 
-		foreach ($puck->getAcceptedFilters() as $key=>$values): 
+			if(!$puck->getAcceptedFilters()) {
+				wp_redirect("/wp-admin/admin.php?page=alfie-config");
+			}
+		foreach ($puck->getAcceptedFilters() as $key=>$values):  
 		$installed = null;	
 		$number_of_products =  $wpdb->get_var("SELECT COUNT(s_id) FROM ".$wpdb->prefix."alfieliate_products  WHERE s_id ='".(int) $values->s_id."'");
 		

@@ -10,7 +10,6 @@ class puck
 	public function __construct($domain='twngtool.nl',$website_id,$api_key='')
 	{
 		$this->api_key = $api_key;
-		$this->api_url = "http://www.{$domain}.nl/whitelabel/api/product/apikey/{$this->api_key}";
 		$this->domain = $domain;
 		$this->website_id = $website_id;
 		$this->wpdb = &$wpdb;
@@ -19,6 +18,7 @@ class puck
 	
 	public function getAcceptedFilters()
 	{
+		
 		$data =  file_get_contents("http://".$this->domain."/whitelabel/api/getacceptedfiltersfromwebsite/apikey/{$this->api_key}/id/".$this->website_id);
 		return json_decode($data);
 	}
