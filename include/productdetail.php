@@ -1,3 +1,12 @@
+
+
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+
 <style>
 	
 	.css3button {
@@ -37,10 +46,11 @@ margin-bottom:40px;
 </style>
 
 <?php
+
 $product = getProduct($_GET['product']);
 $compared_products = array();
 $is_compare_product = false;
-if($product->label_id == HOTELS) {
+if($product->label_id == HOTELS || $product->label_id == FASHION_LABEL) {
 	$compared_products= getComparedProducts($product->product_name,$product->label_id);
 } else {
 	$compared_products= getComparedProducts($product->ean,$product->label_id);

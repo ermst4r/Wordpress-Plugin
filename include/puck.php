@@ -7,7 +7,7 @@ class puck
 	private $api_key;
 	private $wpdb;
 	
-	public function __construct($domain='twngtool.nl',$website_id,$api_key='')
+	public function __construct($domain='alfielaite.nl',$website_id,$api_key='')
 	{
 		$this->api_key = $api_key;
 		$this->domain = $domain;

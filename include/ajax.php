@@ -45,7 +45,7 @@ if($a_id != NULL ) {
 	    )
 	);
 	$context  = stream_context_create($opts);
-	$json_decode =  json_decode(file_get_contents("http://www.twngtool.nl/whitelabel/ajax/process/type/getproducts",false,$context));
+	$json_decode =  json_decode(file_get_contents("http://www.alfieliate.nl/whitelabel/ajax/process/type/getproducts",false,$context));
 	if(count($json_decode) == 0) {
 		echo "Loading..."; 
 		exit; 

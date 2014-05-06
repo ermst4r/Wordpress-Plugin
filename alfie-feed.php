@@ -9,9 +9,13 @@ Author URI: http://www.alfieliate.nl/
 */
 
 // configuration
-define('HOST_DOMAIN','twngtool.nl');
+define('HOST_DOMAIN','alfieliate.nl');
+define('HOST_URL',"http://www.alfieliate.nl/");
 define('HOTELS',12);
-define('HOST_URL',"http://www.twngtool.nl/");
+define('ELEKTRO_LABEL',14);
+define('GSM_LABEL',13);
+define('FASHION_LABEL',15);
+
 
 
 // Plugin Activation
@@ -87,6 +91,7 @@ add_action('admin_menu', 'alfie_plugin_menu');
 
 wp_localize_script( 'my-ajax-request', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 // Include pages
+
 include 'include/puck.php';
 $row = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."alfieliate_settings  WHERE setting_id = '1'", ARRAY_A);
 $puck = new puck(HOST_DOMAIN,$row['website_id'],$row['api_key']);
@@ -100,6 +105,7 @@ add_action( 'wp_ajax_nopriv_docall', 'docall' );
 
 /*******************************************************SHORTCODE MATCHFEED ***********************************************************/
 function alfie_match_feed_func( $atts ) {
+	
 	global $wpdb;
 	global $puck;
 	$css = WP_PLUGIN_URL.'/alfieliate/css/';
@@ -113,9 +119,12 @@ function alfie_match_feed_func( $atts ) {
 	$feed_id =  $row['feed_id'];
 	$s_id =  $row['s_id'];
 	$i = $row['identifier'];
-	$website_id = 1;
+
+	
 	if(isset($_GET['product'])) {
+		
 		include 'include/productdetail.php';
+		
 	} else {
 		include 'include/filterscript.php';
 		include 'include/overview.php';
