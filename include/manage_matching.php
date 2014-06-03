@@ -7,11 +7,8 @@ function manage_matching()
 		<style type="text/css" title="currentStyle">
 			@import "<?php echo $table_dir;?>/css/demo_page.css";
 			@import "<?php echo $table_dir;?>css/jquery.dataTables.css";
-		
-
 		</style>
-		<script type="text/javascript" language="javascript" src="<?php echo $table_dir;?>js/jquery.js"></script>
-		<script type="text/javascript" language="javascript" src="<?php echo $table_dir;?>js/jquery.dataTables.js"></script>
+		
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {
 				$('#example1').dataTable();

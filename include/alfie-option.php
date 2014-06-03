@@ -1,4 +1,11 @@
-<?php function alfie_option_page()
+<?php 
+
+
+
+
+
+
+function alfie_option_page()
 {
 global $wpdb;
 global $puck;
@@ -21,8 +28,8 @@ $images = WP_PLUGIN_URL.'/alfieliate/images/';
 		
 
 		</style>
-		<script type="text/javascript" language="javascript" src="<?php echo $table_dir;?>js/jquery.js"></script>
-		<script type="text/javascript" language="javascript" src="<?php echo $table_dir;?>js/jquery.dataTables.js"></script>
+		
+	
 		<script type="text/javascript" charset="utf-8">
 			$(document).ready(function() {
 				$('#example').dataTable();

@@ -1,17 +1,4 @@
 
-	<link rel="stylesheet" href="<?php echo $css;?>jslider.css" type="text/css">
-	<link rel="stylesheet" href="<?php echo $css;?>jslider.blue.css" type="text/css">
-	<link rel="stylesheet" href="<?php echo $css;?>jslider.plastic.css" type="text/css">
-	<link rel="stylesheet" href="<?php echo $css;?>jslider.round.css" type="text/css">
-	<link rel="stylesheet" href="<?php echo $css;?>jslider.round.plastic.css" type="text/css">
-	<link rel="stylesheet" href="<?php echo $css;?>style.css" type="text/css">
-	<script type="text/javascript" src="<?php echo $js;?>jquery-1.7.1.js"></script>
-	<script type="text/javascript" src="<?php echo $js;?>jshashtable-2.1_src.js"></script>
-	<script type="text/javascript" src="<?php echo $js;?>jquery.numberformatter-1.2.3.js"></script>
-	<script type="text/javascript" src="<?php echo $js;?>tmpl.js"></script>
-	<script type="text/javascript" src="<?php echo $js;?>jquery.dependClass-0.1.js"></script>
-	<script type="text/javascript" src="<?php echo $js;?>draggable-0.1.js"></script>
-	<script type="text/javascript" src="<?php echo $js;?>jquery.slider.js"></script>
 	<style>
 	.css3button {
 	font-family: Arial, Helvetica, sans-serif;

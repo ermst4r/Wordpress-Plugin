@@ -8,6 +8,36 @@ Version: 1.0
 Author URI: http://www.alfieliate.nl/
 */
 
+function load_front_end_init()
+{
+	wp_deregister_script( 'jquery' );
+	wp_enqueue_script( 'alfieliate-frontend-jquery', WP_PLUGIN_URL.'/alfieliate/js/jquery-1.7.1.js');
+	wp_enqueue_script( 'alfieliate-frontend-hashtable', WP_PLUGIN_URL.'/alfieliate/js/jshashtable-2.1_src.js');
+	wp_enqueue_script( 'alfieliate-frontend-numberformatter', WP_PLUGIN_URL.'/alfieliate/js/jquery.numberformatter-1.2.3.js');
+	wp_enqueue_script( 'alfieliate-frontend-tmpl', WP_PLUGIN_URL.'/alfieliate/js/tmpl.js');
+	wp_enqueue_script( 'alfieliate-frontend-dependclass', WP_PLUGIN_URL.'/alfieliate/js/jquery.dependClass-0.1.js');
+	wp_enqueue_script( 'alfieliate-frontend-dragable', WP_PLUGIN_URL.'/alfieliate/js/draggable-0.1.js');
+	wp_enqueue_script( 'alfieliate-frontend-slider1', WP_PLUGIN_URL.'/alfieliate/js/jquery.slider.js');
+	wp_enqueue_style( 'alfieliate-css-slider1', WP_PLUGIN_URL.'/alfieliate/css/jslider.css');
+	wp_enqueue_style( 'alfieliate-css-blue', WP_PLUGIN_URL.'/alfieliate/css/jslider.blue.css');
+	wp_enqueue_style( 'alfieliate-css-plastic', WP_PLUGIN_URL.'/alfieliate/css/jslider.plastic.css');
+	wp_enqueue_style( 'alfieliate-css-round', WP_PLUGIN_URL.'/alfieliate/css/jslider.round.css');
+	wp_enqueue_style( 'alfieliate-css-roundplastic', WP_PLUGIN_URL.'/alfieliate/css/jslider.round.plastic.css');
+	wp_enqueue_style( 'alfieliate-css-style', WP_PLUGIN_URL.'/alfieliate/css/style.css');
+	
+}
+add_action('init','load_front_end_init');
+
+function alfieliate_admin_init() {
+	
+	wp_enqueue_script("jquery");
+	wp_enqueue_script( 'alfieliate-admin-jquery-datatable', WP_PLUGIN_URL.'/alfieliate/media/js/jquery.dataTables.js');
+	
+	
+}
+add_action('admin_init','alfieliate_admin_init');
+
+
 // configuration
 define('HOST_DOMAIN','alfieliate.nl');
 define('HOST_URL',"http://www.alfieliate.nl/");
@@ -78,6 +108,8 @@ function myplugin_deactivate()
 	$wpdb->query("DROP TABLE ".$wpdb->prefix ."alfieliate_products");
 	
 }
+
+
 // add menu
 function alfie_plugin_menu()
 {
@@ -89,10 +121,21 @@ function alfie_plugin_menu()
 
 add_action('admin_menu', 'alfie_plugin_menu');
 
+
+
+
+
+
+
+
+
 wp_localize_script( 'my-ajax-request', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 // Include pages
 
+
+
 include 'include/puck.php';
+global $wpdb;
 $row = $wpdb->get_row("SELECT * FROM ".$wpdb->prefix."alfieliate_settings  WHERE setting_id = '1'", ARRAY_A);
 $puck = new puck(HOST_DOMAIN,$row['website_id'],$row['api_key']);
 include 'include/alfie-option.php';
